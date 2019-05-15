@@ -4,10 +4,18 @@
   "description": "",
   "main": "server.js",
   "dependencies": {
+<<<<<<< HEAD
     "bcrypt": "^3.0.6",
     "cookie-parser": "^1.4.4",
     "jsonwebtoken": "^8.5.1",
     "mysql": "^2.17.1"
+=======
+    "dotenv": "^8.0.0",
+    "express": "^4.16.4",
+    "express-handlebars": "^3.1.0",
+    "mysql2": "^1.6.5",
+    "sequelize": "^5.8.6"
+>>>>>>> 35441e52b48f0247b6cd8b23b86db96295f259c2
   },
   "devDependencies": {
     "eslint": "^5.16.0",
