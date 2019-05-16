@@ -1,4 +1,4 @@
-const db = require("../models");
+const db = require("../../models");
 
 module.exports = (app) => {
   app.get("/viewPosts", function (req, res) {
@@ -14,3 +14,10 @@ module.exports = (app) => {
       });
   });
  }
+
+// const router = require('express').Router();
+
+// router.route("/view")
+// .post(fileUploader, addPost)//use multipart to test in insomnia
+
+// module.exports = router;
