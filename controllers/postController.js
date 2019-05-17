@@ -35,7 +35,19 @@ const getPosts = (req, res) => {
     });
 }
 
+const deletePost = (req, res) => {//accepts as a parameter
+  db.Post.destroy({  
+    where: { id: req.params.id }
+  }).then(
+    function (data) {res.json(data)}
+    ).catch(err => {
+      console.log(err);
+      res.json(err);
+    });
+}
+
 module.exports = {
   addPost,
-  getPosts
+  getPosts,
+  deletePost
 }
