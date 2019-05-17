@@ -1,4 +1,4 @@
-const router = require("epxress").Router();
+const router = require("express").Router();
 
 const { register, login, getUserProfile } = require("../../controllers/user-controller");
 

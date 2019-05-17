@@ -10,18 +10,19 @@ cloudinary.config({
 });
 
 const fileUpload = (req, res, next) => {
+  console.log('hit file upload');
   const form = new formidable.IncomingForm();
   form.parse(req, (err, fields, files) => {
     if (err) {
       return res.status(500).json(err);
     }
     req.body = { ...fields };
-    if (files.profilePic) {
-      cloudinary.uploader.upload(files.profilePic.path, function(err, result) {
+    if (files.screenshot) {//screenshot comes from the public javascript sending the info
+      cloudinary.uploader.upload(files.screenshot.path, function(err, result) {
         if (err) {
           return res.status(500).json(err);
         }
-        req.body.profilePic = result.secure_url;
+        req.body.screenshot = result.secure_url;
         next();
       });
     } else {
