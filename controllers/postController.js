@@ -74,9 +74,55 @@ console.log(req.body);
 
 }
 
+const upVotePost = (req, res) => {
+
+  var newScore;
+  db.Post.findOne({where: {id : req.params.id}
+      
+  }).then(dbScore => {
+
+    newScore = dbScore.score;
+    newScore++;
+    console.log(newScore);
+    dbScore.update({
+      score: newScore
+    })
+
+  }
+  ).then(updatedData => res.json(updatedData))
+  .catch(err => {
+    console.log(err);
+    res.json(err);
+  });
+}
+
+const downVotePost = (req, res) => {
+
+  var newScore;
+  db.Post.findOne({where: {id : req.params.id}
+      
+  }).then(dbScore => {
+
+    newScore = dbScore.score;
+    newScore--;
+    console.log(newScore);
+    dbScore.update({
+      score: newScore
+    })
+
+  }
+  ).then(updatedData => res.json(updatedData))
+  .catch(err => {
+    console.log(err);
+    res.json(err);
+  });
+}
+
 module.exports = {
   addPost,
   getPosts,
   deletePost,
-  updatePost
+  updatePost,
+  upVotePost,
+  downVotePost
 }
