@@ -2,10 +2,10 @@ require("dotenv").config();
 
 module.exports = {
   development: {
-    username: "bu9lgvf1t4y3nxlg",
+    username: "root",
     password: process.env.db_PW,
-    database: "zefmahvdp9uys0h2",
-    host: "mna97msstjnkkp7h.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+    database: "database_test",
+    host: "127.0.0.1",
     dialect: "mysql"
   },
   test: {
@@ -16,10 +16,8 @@ module.exports = {
     dialect: "mysql"
   },
   production: {
-    username: "root",
-    password: null,
-    database: "database_production",
-    host: "127.0.0.1",
+    
+    use_env_variable: "JAWSDB_URL",    
     dialect: "mysql"
   }
 }
