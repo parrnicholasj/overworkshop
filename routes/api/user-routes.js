@@ -1,21 +1,23 @@
-const router = require("express").Router();
+const router = require('express').Router()
+const withAuth = require('../../middleware/authentication');
+const fileUploader = require('../../middleware/file-upload');
 
-const { register, login, getUserProfile } = require("../../controllers/user-controller");
+const {
+  getUserProfile,
+  register,
+  login
+} = require('../../controllers/user-controller');
 
-const withAuth = require("../../middleware/authentication")
-
-
-// get user profile
 router
   .route('/')
-  .get(withAuth ,getUserProfile);
-
-router 
-  .route("/register")
-  .post(register);
+  .get(withAuth, getUserProfile);
 
 router
-  .route("/login")
+  .route('/login')
   .post(login);
+
+router
+  .route('/register')
+  .post(fileUploader, register);
 
 module.exports = router;

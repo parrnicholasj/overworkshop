@@ -8,6 +8,10 @@ app.set("view engine", "handlebars");
 
 const postRoutes = require("./routes/api/apiPostRoutes")
 
+const routes = require("./routes");
+
+
+
 var PORT = process.env.PORT || 3000;
 
 // Requiring our models for syncing
@@ -26,6 +30,8 @@ app.use(express.static("public"));
 require("./routes/htmlRoutes.js")(app);
 
 app.use(postRoutes);//see routes/index.js
+
+app.use(routes);
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
