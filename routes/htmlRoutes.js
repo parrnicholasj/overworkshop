@@ -1,6 +1,9 @@
 const db = require("../models");
 
 module.exports = (app) => {
+
+  
+    
   app.get("/viewPosts", function (req, res) {
     db.Post.findAll({})
       .then(dbPostData => {
@@ -13,4 +16,7 @@ module.exports = (app) => {
         res.json(err);
       });
   });
+
+  
+    
  }
