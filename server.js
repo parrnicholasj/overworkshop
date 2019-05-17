@@ -6,7 +6,7 @@ var exphbs = require("express-handlebars");
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-const routes = require("./routes")
+const postRoutes = require("./routes/api/apiPostRoutes")
 
 var PORT = process.env.PORT || 3000;
 
@@ -25,7 +25,7 @@ app.use(express.static("public"));
 //require("./routes/api/apiPostRoutes.js/index.js")(app);
 require("./routes/htmlRoutes.js")(app);
 
-app.use(routes);
+app.use(postRoutes);//see routes/index.js
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
