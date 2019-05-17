@@ -46,8 +46,37 @@ const deletePost = (req, res) => {//accepts as a parameter
     });
 }
 
+const updatePost = (req, res) => {
+
+console.log(req.body);
+
+  const {
+    title,
+    link,
+    desc,
+    screenshot
+  } = req.body;
+
+  console.log(req.body.title);
+
+  db.Post.findOne({where: {id : req.params.id}
+      
+    }).then(dbPostData => {dbPostData.update({
+      title,
+      link,
+      desc,
+      screenshot
+    })}).then(updatedData => res.json(updatedData))
+    .catch(err => {
+      console.log(err);
+      res.json(err);
+    });
+
+}
+
 module.exports = {
   addPost,
   getPosts,
-  deletePost
+  deletePost,
+  updatePost
 }
