@@ -9,7 +9,8 @@ const register = (req, res) => {
   console.log(req.body);
 
   const {
-    userName, email,
+    userName,
+    email,
     password
   } = req.body;
 

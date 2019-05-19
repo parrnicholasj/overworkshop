@@ -1,8 +1,14 @@
+
 $(".voteUp").on("click", function(){
 
   const getId=$(this).attr("upVoteId")
 
   console.log(getId)
+
+
+  if (!authenticate()) {
+    return
+  }
 
   $.ajax({
     url: `/upvotepost/${getId}`,
@@ -18,6 +24,10 @@ $(".voteDown").on("click", function(){
 
   console.log(getId)
 
+  if (!authenticate()) {
+    return
+  }
+  
   $.ajax({
     url: `/downvotepost/${getId}`,
     method: "PUT"
