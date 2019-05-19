@@ -6,22 +6,24 @@
 
 <div class="container">
 
-  <div class="row">
 
-    {{#each postData}}
+  {{#each postData}}
 
-    <div class="votebox col-1">
-      <div class="arrow">&#8679;</div>
-      <div>{{score}}</div>
-      <div class="arrow">&#8681;</div>
+  <div class="card mb-3">
+    
+      <h5 class="card-header">{{title}}</h5>
+      
+
+    <div class="card-body">
+      <p class="card-text">{{desc}}</p>
+
+      <a href="#" class="card-link">{{link}}</a>
     </div>
 
-    <div class="card col-10 col-md-3">
-      <div class="card-body">
-        <h5 class="card-title">{{title}}</h5>
-        <p class="card-text">{{desc}}</p>
-      </div>
+      <img src="" class="card-img-top mx-2" alt="Image Not Uploaded">
+      <br>
 
+<<<<<<< HEAD
      <textarea class="form-control" aria-label="With textarea"></textarea>
      <button class="btn btn-sm btn-dark">Comment</button>
 
@@ -29,12 +31,17 @@
 
       <div class="card-body">
         <a href="#" class="card-link">{{link}}</a>
+=======
+>>>>>>> 3cb8bc21d1501e04d253e48afc8aa439b7ea2f59
 
-      </div>
+    <div class="votebox inline ml-3 mb-2">
+      <div type="button" class="btn btn-outline-success" id="voteUp">nice</div>
+      <div type="button" class="btn">{{score}}</div>
+      <div type="button" class="btn btn-outline-danger" id="voteDown">shit</div>
     </div>
 
-    {{/each}}
-
   </div>
+
+  {{/each}}
 
 </div>
