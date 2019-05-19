@@ -29,8 +29,9 @@ function signup(e) {
   })
     .then(res => {
       console.log(res);
-      alert("signed up");
-      window.location.href = "/viewposts"
+      swal("signed up");
+      window.location.href = "/viewposts";
+      login();
     })
     .catch(err => {
       console.log(err);
