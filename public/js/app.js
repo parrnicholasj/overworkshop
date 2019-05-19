@@ -29,14 +29,16 @@ function signup(e) {
   })
     .then(res => {
       console.log(res);
+      alert("signed up");
+      window.location.href = "/viewposts"
     })
     .catch(err => {
       console.log(err);
     });
 }
 
-function login(e) {
-  e.preventDefault();
+function login(event) {
+  event.preventDefault();
 
   const email = $('#email-input-login')
     .val()
@@ -56,6 +58,9 @@ function login(e) {
       console.log(token);
       localStorage.setItem('accessToken', token);
       getProfileData();
+      $('#email-input-login').val("");
+      $('#password-input-login').val("");
+      window.location.href = "/viewposts"
     })
     .catch(err => {
       console.log(err);
@@ -73,9 +78,12 @@ function getProfileData() {
     }
   })
     .then(userData => {
+      window.location.href = "/viewposts";
+      alert("logged in");
       console.log(userData);
     })
     .catch(err => {
+      
       console.log(err);
     });
 }
@@ -83,4 +91,9 @@ function getProfileData() {
 $(document).ready(function() {
   $('#signup-form').on('submit', signup);
   $('#login-form').on('submit', login);
+
+  // const token = localStorage.getItem('accessToken');
+  // if (token) {
+  //   getUserProfile();
+  // }
 });

@@ -10,8 +10,6 @@ const postRoutes = require("./routes/api/apiPostRoutes")
 
 const routes = require("./routes");
 
-
-
 var PORT = process.env.PORT || 3000;
 
 // Requiring our models for syncing
