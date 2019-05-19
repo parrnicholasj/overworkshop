@@ -1,7 +1,7 @@
 const db = require("../models");
 
 module.exports = (app) => {
-  app.get("/", function (req, res) {
+  app.get("/viewposts", function (req, res) {
     db.Post.findAll({})
       .then(dbPostData => {
         res.render("view", {
