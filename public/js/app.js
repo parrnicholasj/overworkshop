@@ -29,14 +29,15 @@ function signup(e) {
   })
     .then(res => {
       console.log(res);
+      alert("signed up")
     })
     .catch(err => {
       console.log(err);
     });
 }
 
-function login(e) {
-  e.preventDefault();
+function login(event) {
+  event.preventDefault();
 
   const email = $('#email-input-login')
     .val()
@@ -56,6 +57,9 @@ function login(e) {
       console.log(token);
       localStorage.setItem('accessToken', token);
       getProfileData();
+      $('#email-input-login').val("");
+      $('#password-input-login').val("");
+      window.location.href = "../../views/layouts/main.handlebars"
     })
     .catch(err => {
       console.log(err);
@@ -73,9 +77,11 @@ function getProfileData() {
     }
   })
     .then(userData => {
+      alert("logged in")
       console.log(userData);
     })
     .catch(err => {
+      
       console.log(err);
     });
 }
