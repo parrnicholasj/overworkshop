@@ -92,8 +92,8 @@ $(document).ready(function() {
   $('#signup-form').on('submit', signup);
   $('#login-form').on('submit', login);
 
-  // const token = localStorage.getItem('accessToken');
-  // if (token) {
-  //   getUserProfile();
-  // }
+  const token = localStorage.getItem('accessToken');
+  if (token) {
+    getUserProfile();
+  }
 });

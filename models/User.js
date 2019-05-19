@@ -41,7 +41,7 @@ module.exports = function(sequelize, DataTypes) {
   // ?? beforeCreate is a built in function??
 
   User.beforeCreate(function(user) {
-    user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
+    user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(1), null);
   });
   
   return User;
