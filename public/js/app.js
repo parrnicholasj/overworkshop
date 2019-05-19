@@ -61,7 +61,7 @@ function login(event) {
       getProfileData();
       $('#email-input-login').val("");
       $('#password-input-login').val("");
-      window.location.href = "/viewposts"
+      window.location.href = "/viewposts";
     })
     .catch(err => {
       console.log(err);
@@ -79,6 +79,7 @@ function getProfileData() {
     }
   })
     .then(userData => {
+      // $("#user-name").text()
       window.location.href = "/viewposts";
       alert("logged in");
       console.log(userData);
@@ -89,12 +90,21 @@ function getProfileData() {
     });
 }
 
+function logout() {
+  localStorage.removeItem("accessToken");
+  window.location.href = '/';
+}
+
 $(document).ready(function() {
+  $("#user-info").hide();
   $('#signup-form').on('submit', signup);
   $('#login-form').on('submit', login);
+  $('#logout').on('click', logout);
 
   const token = localStorage.getItem('accessToken');
   if (token) {
-    getUserProfile();
+    console.log('hitting');
+    $("#user-info").show();
+    getProfileData();
   }
 });

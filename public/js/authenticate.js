@@ -6,7 +6,7 @@ function authenticate() {
     el.innerHTML = "<a href='/'>log in link<a>";
     
     swal({
-      title: "plz log in to vote",
+      title: "Must be logged in",
       content: el,
       icon: "warning"
     })
