@@ -29,7 +29,8 @@ function signup(e) {
   })
     .then(res => {
       console.log(res);
-      alert("signed up")
+      alert("signed up");
+      window.location.href = "/viewposts"
     })
     .catch(err => {
       console.log(err);
@@ -59,7 +60,7 @@ function login(event) {
       getProfileData();
       $('#email-input-login').val("");
       $('#password-input-login').val("");
-      window.location.href = "../../views/layouts/main.handlebars"
+      window.location.href = "/viewposts"
     })
     .catch(err => {
       console.log(err);
@@ -77,7 +78,8 @@ function getProfileData() {
     }
   })
     .then(userData => {
-      alert("logged in")
+      window.location.href = "/viewposts";
+      alert("logged in");
       console.log(userData);
     })
     .catch(err => {
@@ -89,4 +91,9 @@ function getProfileData() {
 $(document).ready(function() {
   $('#signup-form').on('submit', signup);
   $('#login-form').on('submit', login);
+
+  // const token = localStorage.getItem('accessToken');
+  // if (token) {
+  //   getUserProfile();
+  // }
 });
