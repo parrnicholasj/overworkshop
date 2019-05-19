@@ -1,8 +1,61 @@
-<div class="jumbotron jumbotron-fluid bg-dark text-light p-5">
-  <h1>Overworkshop</h1>
+
+
+<div class="jumbotron bg-dark text-light p-5">
+  <h1 class="text-center">Overworkshop</h1>
+  
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Launch demo modal
+</button>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-dark" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      
+      <div class="modal-body">
+       <form class="was-validated">
+  <div class="mb-3">
+    <h4 class="text-dark" id="create-title">Tittle</h4>
+    <input type="text">
+    <h4 class="text-dark" id="create-code">Code</h4>
+
+    <input type="text"> 
+    <br>
+    <label for="validationTextarea" class="text-dark">Commets</label>
+    <textarea class="form-control is-invalid" id="validationTextarea" placeholder="Required example textarea" required></textarea>
+    <div class="invalid-feedback text-dark">
+     
+    </div>
+  </div>
+
+  {{!-- <div class="custom-file">
+    <input type="file" class="custom-file-input" id="validatedCustomFile" required>
+    <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+    <div class="invalid-feedback">Example invalid custom file feedback</div>
+  </div> --}}
+</form>
+
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 </div>
 
 <div class="container">
+
+  
 
 
   {{#each postData}}
@@ -27,9 +80,10 @@
       <div type="button" class="btn">{{score}}</div>
       <div type="button" class="btn btn-outline-danger voteDown" downVoteId={{id}} currentScoreDown={{score}}>shit</div>
     </div>
-
-  </div>
-
+  
+  
+  
+  
   {{/each}}
 
 </div>
