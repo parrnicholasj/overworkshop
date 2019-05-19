@@ -7,7 +7,7 @@ $(".voteUp").on("click", function(){
   $.ajax({
     url: `/upvotepost/${getId}`,
     method: "PUT"
-  }).then(() => location.reload())
+  }).then(location.reload())
   .catch(err => console.log(err))
 
 })
@@ -21,7 +21,7 @@ $(".voteDown").on("click", function(){
   $.ajax({
     url: `/downvotepost/${getId}`,
     method: "PUT"
-  }).then(() => location.reload())
+  }).then(location.reload())
   .catch(err => console.log(err))
 
 })
