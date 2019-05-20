@@ -28,7 +28,7 @@ function getProfileData() {
     })
     .then(userData => {
       $("#user-name").text(userData.userName);
-      // window.location.href = "/viewposts";
+      window.location.href = "/viewposts";
       console.log(userData);
     })
     .catch(err => {

@@ -28,8 +28,10 @@ function signup(event) {
   })
     .then(res => {
       console.log(res);
-      swal("signed up");
-      signUpAndLogin(email, password);
+      swal("signed up, now log in");
+      location.reload();
+
+      // signUpAndLogin(email, password);
       // window.location.href = "/viewposts";
       // login();
     })
