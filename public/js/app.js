@@ -1,5 +1,5 @@
-function signup(e) {
-  e.preventDefault();
+function signup(event) {
+  event.preventDefault();
 
   const userName = $('#user-name-input')
     .val()
@@ -11,7 +11,6 @@ function signup(e) {
     .val()
     .trim();
 
-  // const photo = document.getElementById('profile-pic').files[0];
 
   const signUpData = new FormData();
   signUpData.append('userName', userName);
@@ -30,12 +29,29 @@ function signup(e) {
     .then(res => {
       console.log(res);
       swal("signed up");
-      window.location.href = "/viewposts";
-      login();
+      signUpAndLogin(email, password);
+      // window.location.href = "/viewposts";
+      // login();
     })
     .catch(err => {
+      swal("problem singing up");
       console.log(err);
     });
+}
+
+function signUpAndLogin(email, password) {
+  const loginData = { email, password };
+
+  $.ajax({
+    url: "/api/user/login",
+    method: "POST",
+    data: loginData
+  }).then(accessToken => {
+
+    localStorage.setItem('accessToken', accessToken);
+    getProfileData();
+    window.location.href = "/viewposts";
+  })
 }
 
 function login(event) {
@@ -55,9 +71,10 @@ function login(event) {
     method: 'post',
     data: loginData
   })
-    .then(token => {
-      console.log(token);
-      localStorage.setItem('accessToken', token);
+    .then(accessToken => {
+      // console.log("accessToken yoo:",accessToken);
+      // alert(accessToken);
+      localStorage.setItem('accessToken', accessToken);
       getProfileData();
       window.location.href = "/viewposts";
     })
@@ -81,28 +98,28 @@ function getProfileData() {
     }
   })
     .then(userData => {
-      // $("#user-name").text(userData.userName);
-      window.location.href = "/viewposts";
+      $("#user-name").text(userData.userName);
+      // window.location.href = "/viewposts";
       console.log(userData);
     })
     .catch(err => {
       
       console.log(err);
+      swal("funny cookie")
       // handle()
     });
 }
 
-function logout() {
-  localStorage.removeItem("accessToken");
-  window.location.href = '/';
-}
+// function logout() {
+//   localStorage.removeItem("accessToken");
+//   window.location.href = '/';
+// }
 
 $(document).ready(function() {
-  $("#user-info").hide();
+  // $("#user-info").hide();
   $('#signup-form').on('submit', signup);
   $('#login-form').on('submit', login);
-  $('#logout').on('click', logout);
-
+  
   const token = localStorage.getItem('accessToken');
   if (token) {
     console.log('hitting');
