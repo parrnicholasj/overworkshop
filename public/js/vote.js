@@ -22,11 +22,7 @@ $(".voteDown").on("click", function(){
 
   const getId=$(this).attr("downVoteId")
 
-  console.log(getId)
-
-  if (!authenticate()) {
-    return
-  }
+  console.log(getId);
   
   $.ajax({
     url: `/downvotepost/${getId}`,
