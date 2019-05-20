@@ -39,11 +39,11 @@ function getProfileData() {
     });
 }
 
-const token = localStorage.getItem('accessToken');
+// const token = localStorage.getItem('accessToken');
 
-if (token) {
-  getProfileData();
-}
+// if (token) {
+//   getProfileData();
+// }
 
 $("#logout").on("click", function () {
   localStorage.removeItem("accessToken");
