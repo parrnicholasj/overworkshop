@@ -59,12 +59,14 @@ function login(event) {
       console.log(token);
       localStorage.setItem('accessToken', token);
       getProfileData();
-      $('#email-input-login').val("");
-      $('#password-input-login').val("");
       window.location.href = "/viewposts";
     })
     .catch(err => {
       console.log(err);
+      return swal({
+        title: err.responseJSON.error,
+        icon: "error"
+      })
     });
 }
 
@@ -79,14 +81,14 @@ function getProfileData() {
     }
   })
     .then(userData => {
-      // $("#user-name").text()
+      // $("#user-name").text(userData.userName);
       window.location.href = "/viewposts";
-      alert("logged in");
       console.log(userData);
     })
     .catch(err => {
       
       console.log(err);
+      // handle()
     });
 }
 
@@ -104,7 +106,8 @@ $(document).ready(function() {
   const token = localStorage.getItem('accessToken');
   if (token) {
     console.log('hitting');
+    window.location.href = "/viewposts"
     $("#user-info").show();
-    getProfileData();
+    // getProfileData();
   }
 });
