@@ -8,6 +8,7 @@ const {
   login
 } = require('../../controllers/user-controller');
 
+// also hitting authentication here ----------
 router
   .route('/')
   .get(withAuth, getUserProfile);

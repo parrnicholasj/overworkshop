@@ -22,6 +22,7 @@ const register = (req, res) => {
   })
   .then(dbUserData => res.json(dbUserData))
   .catch(err => {
+    console.log('you didnt sign up/register dude');
     console.log(err);
     res.json(err);
   });
@@ -59,7 +60,7 @@ const login = async (req, res) => {
       };
 
       const token = jwt.sign(payload, secret, {
-        expiresIn: '1m'
+        expiresIn: '5m'
       });
 
       res.status(200).json(token);
@@ -73,6 +74,7 @@ const getUserProfile = async (req, res) => {
   const [userErr, userProfile] = await handle(User.findOne({ id: req.id }));
 
   if (userErr) {
+    console.log('problem getting usersprofile')
     res.status(500).json(userErr);
   } else {
     res.status(200).json(userProfile);
