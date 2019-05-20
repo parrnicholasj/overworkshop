@@ -77,7 +77,7 @@ function login(event) {
       // console.log("accessToken yoo:",accessToken);
       // alert(accessToken);
       localStorage.setItem('accessToken', accessToken);
-      getProfileData();
+      // getProfileData();
       window.location.href = "/viewposts";
     })
     .catch(err => {
